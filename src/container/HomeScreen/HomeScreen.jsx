@@ -8,7 +8,6 @@ import Row from "../../components/Row/Row";
 //Axios
 import requests from "../../api/Request";
 
-
 const HomseScreen = () => {
   return (
     <div className="homeScreen">
