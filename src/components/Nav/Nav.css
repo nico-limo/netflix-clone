@@ -38,3 +38,23 @@
     width: 30px;
     right: 20px;
 }
+
+.nav__contents__categories {
+    display: flex;
+    padding: 5px 100px;
+    left: auto;
+    right: auto;
+}
+
+.nav__contents__categories__link {
+    color: white;
+    font-size: 1.8vh;
+    margin-right: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.nav__contents__categories__link:hover {
+    color: rgb(182, 182, 182);
+    transition: all 0.2s;
+}
