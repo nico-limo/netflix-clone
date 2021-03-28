@@ -81,7 +81,7 @@ const Plans = () => {
             if (sessionId) {
                 // Init Stripe because we have a session
                 const stripe = await loadStripe(
-                    "pk_test_51IVG0xHRBh6LKYFMJImawn2nke0zUm6U1MbB95lI6mOWWvoPB9ml6kDOA3DT13ii5LrsTQOn58RcYx6AQ7T9pmJh00DQShJBoN"
+                    process.env.REACT_APP_STRIPE_API_KEY
                 );
                 stripe.redirectToCheckout({ sessionId });
             }

@@ -15,7 +15,7 @@ import { login, logout, selectUser } from "../../store/features/userSlice";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-
+  console.log(process.env.REACT_APP_MOVIES_API_KEY)
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged( userAuth =>  {
       if (userAuth) {
