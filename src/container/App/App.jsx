@@ -15,35 +15,46 @@ import { login, logout, selectUser } from "../../store/features/userSlice";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  console.log(process.env.REACT_APP_MOVIES_API_KEY)
+  console.log(process.env.REACT_APP_MOVIES_API_KEY);
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged( userAuth =>  {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        dispatch(login({
-          uid: userAuth.uid,
-          email: userAuth.email
-        }));
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
       } else {
         dispatch(logout());
-      }    
+      }
     });
     return unsubscribe;
-  }, [dispatch])
+  }, [dispatch]);
 
-    return (
-        <div className="app">
-        <Router>
-          {!user ? (
-            <LoginScreen/>
-          ) : (
-          <Switch>
-            <Route path="/profile"><ProfileScreen/></Route>
-            <Route exact path="/"><HomseScreen/></Route>
-          </Switch>
-          )}
-          </Router>
-        </div>
+  useEffect(() => {
+    alert(
+      "Para loguearse, puede crear una cuenta o utilizar email:test@test.com, password:123456"
     );
+  }, []);
+  return (
+    <div className="app">
+      <Router>
+        {!user ? (
+          <LoginScreen />
+        ) : (
+          <Switch>
+            <Route path="/profile">
+              <ProfileScreen />
+            </Route>
+            <Route exact path="/">
+              <HomseScreen />
+            </Route>
+          </Switch>
+        )}
+      </Router>
+    </div>
+  );
 }
 
 export default App;
